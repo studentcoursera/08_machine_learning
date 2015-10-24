@@ -39,12 +39,12 @@ Link: http://groupware.les.inf.puc-rio.br/public/papers/2013.Velloso.QAR-WLE.pdf
   
 ## Brief about the Weight lifting Exercises  
   
-Participants were asked to perform one set of 10 repetitions of the Unilateral Dumbbell Biceps Curl in five different fashions: 
-1. exactly according to the specification (Class A), 
-2. throwing the elbows to the front (Class B), 
-3. lifting the dumbbell only halfway (Class C), 
-4. lowering the dumbbell only halfway (Class D) and 
-5. throwing the hips to the front (Class E). 
+Participants were asked to perform one set of 10 repetitions of the Unilateral Dumbbell Biceps Curl in five different fashions:  
+1. exactly according to the specification **(Class A)**,  
+2. throwing the elbows to the front **(Class B)**,  
+3. lifting the dumbbell only halfway **(Class C)**,  
+4. lowering the dumbbell only halfway **(Class D)** and  
+5. throwing the hips to the front **(Class E)**.  
 
 Class A corresponds to the specified execution of the exercise, while the other 4 classes correspond to common mistakes. Participants were supervised by an experienced weight lifter to make sure the execution complied to the manner they were supposed to simulate. 
 
@@ -129,7 +129,7 @@ After experimenting with the following group of variables and considering the cu
 
 The various forms of group of variables considered in this experimentaion (as part of EDA) were:
 ```
-1. All the variables. This needed eliminating a few columns, like NA, etc.  
+1. All the variables. We had to eliminate a few columns, like NA, etc.  
   
 2. Eliminating all the 8 calculated variables. With this encountered a few issues.  
 tt2 <- subset(pmltraining,select=c(-grep("^kurtosis_|^skewness_|^max_|^min_
