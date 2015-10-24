@@ -108,14 +108,12 @@ Training and testing data:
 Warning message:
 executing %dopar% sequentially: no parallel backend registered
 ```  
-  
 7. As part of high correlation test, noticed that couple of fields can be eliminated. This was experimented on the x/y/z/total dataset (43 variables); not on the final data.
 ```
 > names(tt3[,highCorr])
 [1] "accel_belt_x"    "gyros_belt_z"    "gyros_forearm_x" "magnet_arm_z"   
 [5] "total_accel_arm"
 ```  
-  
 8. 
   
   
