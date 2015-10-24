@@ -53,14 +53,14 @@ The exercises were performed by 6 male participants aged between 20-28 years, wi
 ## Notes
 
 3 types of motion (Euler angels): roll, pitch and yaw.  
-================================  
+--------------------------------  
 Rotation around the front-to-back axis is called roll.  
 Rotation around the side-to-side axis is called pitch.  
 Rotation around the vertical axis is called yaw.  
   
   
 Variables  
-=========  
+---------  
 Training and testing data:  
 + Totally, there are 160 fields.  
 + 100 fields are the aggregated values.  
