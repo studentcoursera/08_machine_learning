@@ -65,7 +65,9 @@ Training and testing data:
 + 100 fields are the aggregated values.  
 + 60 fields are independent values recorded.  
 
+**Details**  
   
+```
 1. For every user, every num_window and new_window == "yes", 8 values are calculated. The combination of the same is as follows (96+4=100 fields):  
 	a. belt, arm, forearm, dumbell (4 tools)  
 		i. roll, pitch and yaw (3 motions/Euler angels)  
@@ -89,7 +91,7 @@ Training and testing data:
    a. there is not a single row with new_window="yes"; thus, there are no values for these fields (96+4=100) combinations mentioned in point 1. So, out of 160 fields, these 100 fields have no values; only "NAs".  
    b. So, the rest of 60 fields composes of - as detailed in point 2 above.  
 6. For the purpose of this project, we only need data related to classe and accelerometers on the belt, forearm, arm, and dumbell of 6 participants.  
-  
+```
   
 ## Experiments/observations  
   
