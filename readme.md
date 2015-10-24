@@ -151,16 +151,17 @@ pmltrain <- subset(pmltraining,select=c(2,7,grep("^accel_|^total_accel",names(pm
 
 ### Others
 
-3 checks:
-It is suggested that if:
+**3 checks:**  
+It is suggested that if:  
 1. the percentage of unique values is less than 20% and  
 2. the ratio of the most frequent to the second most frequent value is greater than 20, the predictor may cause problem for some models. The function nearZeroVar can be used to identify near zero-variance predictors in a dataset. It returns an index of the column numbers that violate the two conditions above.  
 3. some models are susceptible to multicollinearity (i.e., high correlations between predictors).  
-
-Linear models, neural networks and other models can have poor performance in these situations or may generate unstable solutions. Other models, such as classification or regression trees, might be resistant to highly correlated predictors, but multicollinearity may negatively impact interpretability of the model.
-
-So, if only there is need for 3rd check, do it. Else, do not perform.
-[The above paragraph on checks, is with reference to "Journal of Statistical Software"; Building Predictive Models in R Using the caret Package by Max Kuhn]
+  
+Linear models, neural networks and other models can have poor performance in these situations or may generate unstable solutions. Other models, such as classification or regression trees, might be resistant to highly correlated predictors, but multicollinearity may negatively impact interpretability of the model.  
+  
+So, if only there is need for 3rd check, do it. Else, do not perform.  
+  
+[The above paragraph on checks, is with reference to "Journal of Statistical Software"; Building Predictive Models in R Using the caret Package by Max Kuhn]  
 
 
 ### Experiment conducted on actual data -  8 calculated features: 
