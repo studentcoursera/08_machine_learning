@@ -53,9 +53,9 @@ The exercises were performed by 6 male participants aged between 20-28 years, wi
 ## Notes  
   
 **3 types of motion (Euler angels):** roll, pitch and yaw.    
-Rotation around the front-to-back axis is called roll.  
-Rotation around the side-to-side axis is called pitch.  
-Rotation around the vertical axis is called yaw.  
+Rotation around the front-to-back axis is called _roll_.  
+Rotation around the side-to-side axis is called _pitch__.  
+Rotation around the vertical axis is called _yaw__.  
   
   
 **Variables**  
@@ -68,9 +68,9 @@ Training and testing data:
 
 1. For every user, every num_window and new_window == "yes", 8 values are calculated. The combination of the same is as follows (96+4=100 fields):  
    a. belt, arm, forearm, dumbell (4 tools)  
-      i. roll, pitch and yaw (3 motions/Euler angels)  
-          a. kurtosis, skewness, max, min, amplitude, avg, stddev, var (8 calculated features)  
-      ii. accel  
+     i. roll, pitch and yaw (3 motions/Euler angels)  
+        a. kurtosis, skewness, max, min, amplitude, avg, stddev, var (8 calculated features)  
+     ii. accel  
           a. var  
 2. The values in every column would be (60 fields):  
    a. user_name, raw_timestamp_part_1, raw_timestamp_part_2, cvtd_timestamp, new_window, num_window [ 6]  
