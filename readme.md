@@ -68,29 +68,36 @@ Training and testing data:
 **Details**  
   
 ```
-1. For every user, every num_window and new_window == "yes", 8 values are calculated. The combination of the same is as follows (96+4=100 fields):  
-	a. belt, arm, forearm, dumbell (4 tools)  
-		i. roll, pitch and yaw (3 motions/Euler angels)  
-			a. kurtosis, skewness, max, min, amplitude, avg, stddev, var (8 calculated features)  
-		ii. accel  
-			a. var  
+1. For every user, every num_window and new_window == "yes", 8 values are calculated. 
+   The combination of the same is as follows (96+4=100 fields):  
+   a. belt, arm, forearm, dumbell (4 tools)  
+      i. roll, pitch and yaw (3 motions/Euler angels)  
+         a. kurtosis, skewness, max, min, amplitude, avg, stddev, var 
+      ii. accel  
+         a. var  
 2. The values in every column would be (60 fields):  
-   a. user_name, raw_timestamp_part_1, raw_timestamp_part_2, cvtd_timestamp, new_window, num_window [ 6]  
-   b. belt, arm, forearm, dumbell (4 tools)															[12]  
+   a. user_name, raw_timestamp_part_1, raw_timestamp_part_2, cvtd_timestamp, new_window, 
+      num_window 											[ 6]  
+   b. belt, arm, forearm, dumbell (4 tools)					[12]  
       i. roll_<tools>, pitch_<tools> and yaw_<tools> (3 motions/Euler angels)  
-   c. belt, arm, forearm, dumbell (4 tools)															[ 4]  
+   c. belt, arm, forearm, dumbell (4 tools) 				   [ 4]  
       i. total_accel_<tools>  
-   d. belt, arm, forearm, dumbell (4 tools)															[36]  
+   d. belt, arm, forearm, dumbell (4 tools)				   [36]  
       i. gyros, accel, magnet (3 sensors)  
         a. <sensors> _<tools>_x/y/z  
-   e. X and classe/problem_id_																		[ 2]  
-3. There are no NAs in main data (site http://groupware.les.inf.puc-rio.br/har). The NAs found in the training or test data, looks basically like, for the columns where the num_windows are same (new_window == "no"). So, we can remove those NAs.   
+   e. X and classe/problem_id_								[ 2]  
+3. There are no NAs in main data (site http://groupware.les.inf.puc-rio.br/har). The NAs
+   found in the training or test data, looks basically like, for the columns where the
+   num_windows are same (new_window == "no"). So, we can remove those NAs.   
 4. In training data there is a variable, "classe".  
    In testing, there is no "classe" but another field called "problem_id".  
 5. In testing data,   
-   a. there is not a single row with new_window="yes"; thus, there are no values for these fields (96+4=100) combinations mentioned in point 1. So, out of 160 fields, these 100 fields have no values; only "NAs".  
+   a. there is not a single row with new_window="yes"; thus, there are no values for
+      these fields (96+4=100) combinations mentioned in point 1. So, out of 160 fields,
+	  these 100 fields have no values; only "NAs".  
    b. So, the rest of 60 fields composes of - as detailed in point 2 above.  
-6. For the purpose of this project, we only need data related to classe and accelerometers on the belt, forearm, arm, and dumbell of 6 participants.  
+6. For the purpose of this project, we only need data related to classe and
+   accelerometers on the belt, forearm, arm, and dumbell of 6 participants.  
 ```
   
 ## Experiments/observations  
