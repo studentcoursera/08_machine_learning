@@ -65,9 +65,9 @@ Training and testing data:
 + 100 fields are the aggregated values.  
 + 60 fields are independent values recorded.  
 
-
+  
 1. For every user, every num_window and new_window == "yes", 8 values are calculated. The combination of the same is as follows (96+4=100 fields):  
-   a. belt, arm, forearm, dumbell (4 tools)  
+	a. belt, arm, forearm, dumbell (4 tools)  
 		i. roll, pitch and yaw (3 motions/Euler angels)  
 			a. kurtosis, skewness, max, min, amplitude, avg, stddev, var (8 calculated features)  
 		ii. accel  
