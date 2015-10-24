@@ -1,0 +1,531 @@
+?plot
+?geom_violin
+ls()
+str(wideCW2)
+ggplot(wideCW2, aes(factor(Diet),gain)) + geom_violin
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin
+?geom_violin
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin(fill = factor(Diet))
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin(fill = factor(wideCW2$Diet))
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin()
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin(fill = factor(wideCW2$Diet))
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin(colour = factor(wideCW2$Diet))
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin(colour = yellow)
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin(colour = "yellow")
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin(fill = "yellow")
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin(fill = Diet)
+g + geom_violin(fill = Diet)
+g + geom_violin(fill = wideCW2 $Diet)
+g + geom_violin(fill = wideCW2$Diet)
+g + geom_violin(aes(fill = Diet))
+g <- ggplot(wideCW2, aes(factor(Diet),gain)) #
+g + geom_violin(aes(fill = Diet))
+subset(wideCW2, Diet %in% c(1,4))
+wideCW14 <- subset(wideCW2, Diet %in% c(1,4))#
+rbind(#
+t.test(gain ~ Diet, paired = F, var.equal=T, data = wideCW14)$conf#
+t.test(gain ~ Diet, paired = F, var.equal=F, data = wideCW14)$conf#
+)
+wideCW14 <- subset(wideCW2, Diet %in% c(1,4))
+rbind(#
+t.test(gain ~ Diet, paired = F, var.equal=T, data = wideCW14)$conf,#
+t.test(gain ~ Diet, paired = F, var.equal=F, data = wideCW14)$conf#
+)
+wideCW14 <- subset(wideCW, Diet %in% c(1,4))
+rbind(#
+t.test(gain ~ Diet, paired = F, var.equal=T, data = wideCW14)$conf,#
+t.test(gain ~ Diet, paired = F, var.equal=F, data = wideCW14)$conf#
+)
+wideCW14 <- subset(wideCW2, Diet %in% c(1,4))
+rbind(#
+t.test(gain ~ Diet, paired = F, var.equal=T, data = wideCW14)$conf,#
+t.test(gain ~ Diet, paired = F, var.equal=F, data = wideCW14)$conf#
+)
+g + geom_smooth(se=FALSE, colour="black", size=2)
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line() + facet_grid(. ~ Diet) #
+g + geom_smooth(se=FALSE, colour="black", size=2)
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line() + facet_grid(. ~ Diet) #
+g + geom_smooth( colour="black", size=2)
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line() + facet_grid(. ~ Diet) #
+g + geom_smooth( colour="black", size=2)g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line()
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line()
+g
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line()  #
+g <- g + geom_smooth(se=FALSE, colour="black", size=2)
+g
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line()  #
+g <- g + ge
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line()  #
+g1 <- g + geom_smooth(se=FALSE, colour="black", size=2)
+g
+g1
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line()  #
+g1 <- g + geom_smooth(se=FALSE, colour="black", size=2, method="lm")
+g1
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick, colour=Diet)) + #
+geom_line()  #
+g1 <- g + geom_smooth(se=FALSE, colour="black", size=2, method="")
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()
+g
+g + aes(colour = factor(Diet))
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + geom_smooth(se=FALSE, colour="black", size=2)
+g2
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE)
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + geom_smooth(se=FALSE, colour="black", size=2)#
+g3 <- g2 + facet_grid(. ~ Diet)
+g
+g1
+g2
+g3
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g2 <- g2 + geom_smooth(aes(group=1), se=FALSE, colour="black", size=2)
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g3 <- g2 + geom_smooth(aes(group=1), se=FALSE, colour="black", size=2)
+g
+g1
+g2
+g3
+g3 <- g2 + geom_smooth(aes(group=1))
+g3
+g3 <- g2 + geom_smooth(aes(group=1), colour="black")
+g3
+g3 <- g2 + geom_line(aes(group=1), colour="black")
+g3
+g3 <- g2 + geom_smooth(aes(group=1), colour="black")
+g3
+g3 <- g2 + geom_smooth(aes(group=1), colour="black", method='x')
+g3
+g3 <- g2 + geom_smooth(aes(group=1), colour="black", method='lm')
+g3
+g2 + geom_smooth(aes(group=1), colour="black", method='glm')
+g2 + geom_smooth(aes(group=Chick), colour="black", method='glm')
+g2 + geom_smooth(aes(group=Diet), colour="black", method='glm')
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g3 <- g2 + geo_line(aes(group=1), colour="black", size=2)
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g3 <- g2 + geom_line(aes(group=1), colour="black", size=2)
+g2
+g3
+g2 + geom_line(aes(group=1), colour="black", size=2)
+g2 + geom_line(aes(group=2), colour="black", size=2)
+g2 + geom_line(aes(group=3), colour="black", size=2)
+g2 + geom_line(linetype=group)
+g2 + geom_line(linetype=Chick)
+g2 + geom_line(aes(linetype=group))
+g2 + geom_line(aes(linetype=Chick))
+g2 + geom_line(aes(linetype=Chick), colour="black")
+g2 + geom_line(aes(linetype=Diet), colour="black")
+g2 + geom_line(aes(linetype=gain), colour="black")
+g2 + geom_line(aes(linetype=tt2$gain), colour="black")
+g2 + geom_line(aes(line=tt2$gain), colour="black")
+g2
+g2 + geom_smooth(aes(group=Chick))
+g2 + geom_smooth(aes(group=Chick), method="lm")
+g2 + geom_smooth(aes(group=Chick), method="mean")
+g2 + geom_abline(intercept = 29468.87, slope = 124.6561, color = "red")
+g2 + geom_smooth(aes(group=Chick), method="mean", se=F)
+g2 + geom_smooth(aes(group=Chick), method="lm", se=F)
+g2 + geom_smooth(aes(group=Chick), method="lm", se=T)
+g2 + stat_bin(aes(size=..density..), binwidth=0.1, geom="point", position="identity")
+g2 + stat_bin(aes(size=..mean..), binwidth=0.1, geom="point", position="identity")
+g2 + stat_bin(aes(y=..mean..), binwidth=0.1, geom="point", position="identity")
+g2 + geom_abline(aes(group=Chick))
+g2 + geom_abline(aes(group=Chick, y=gain))
+g2 + geom_abline(aes(group=Chick, y=tt2$gain))
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g3 <- g2 + geom_line(aes(group=1), colour="black", size=2)
+g3
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g3 <- g2 + geom_line(aes(y=gain, group=1), colour="black", size=2)
+g3
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g3 <- g2 + geom_line(aes(y=tt2$gain, group=1), colour="black", size=2)
+g3
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g3 <- g2 + geom_line(aes(y=tt2$gain), colour="black", size=2)
+g3
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g3 <- g2 + geom_line(colour="black", size=2)
+g3
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g3 <- g2 + geom_abline(colour="black", size=2)
+g3
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g2 + geom_abline(slope=1, colour="black", size=2)
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g2 + geom_smooth(aes(group=1))
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g2 + geom_smooth(aes(group=1), colour="black")
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g2 + geom_smooth(aes(group=1), colour="black", method = "lm")
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g2 + geom_smooth(aes(group=1, y=tt2$gain), colour="black", method = "lm")
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)#
+g2 + geom_smooth(aes(group=1), colour="black", method = "lm")
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)
+g2 <- geom_line(stat = "hline", yintercept = "mean")
+g <- ggplot(data = tt2, aes(x=Time, y=weight, group=Chick)) + #
+geom_line()   + guides(colour=FALSE) #
+g1 <- g + aes(colour = factor(Diet))#
+g2 <- g1 + facet_grid(. ~ Diet)
+g2 + geom_line(stat = "hline", yintercept = "mean")
+g2 + geom_line(stat = "abline", yintercept = "mean")
+g2 + geom_line(stat = "abline", yintercept = "mean", colour="black")
+g2 + geom_line(stat = "vline", yintercept = "mean", colour="black")
+g2 + geom_line(stat = "abline", yintercept = "mean", colour="black")
+g2 + geom_line(stat = "abline", group=Chick, yintercept = "mean", colour="black")
+g2 + geom_line(stat = "abline", group=tt2$Chick, yintercept = "mean", colour="black")
+g2 + stat_density(geom = "path", position = "identity")
+g2
+g2 + stat_density(geom = "path", position = "identity")
+g2 + geom_line(stat = "summary", fun.y = "mean")
+g2 + geom_line(stat = "summary", fun.y = "mean", aes(group=Chick))
+g2 + geom_density()
+g2 + geom_smooth(method = lm, size = 1)
+g2 + geom_smooth(method = lm, size = 1, group=1)
+g2 + geom_smooth(method = lm, size = 1, aes(group=1))
+g2 + geom_smooth(method = lm, size = 1, aes(group=1), colour="black")
+g2 + geom_line(data=tt2, y=gain, x=Time, group=Chick)
+str(tt2)
+g2 + geom_line(data=tt2, y=avg, x=Time, group=Chick)
+g2 + geom_line(data=tt2, y=tt2$avg, x=Time, group=Chick)
+g2 + geom_line(data=tt2, y=tt2$avg, x=tt2$Time, group=tt2$Chick)
+g2 + geom_line(data=tt2, group=tt2$Chick)
+g2 + geom_line(data=tt2, group=tt2$Chick, colour = "black")
+library(nlme)#
+library(ggplot2)#
+#
+p <- ggplot(data = Orthodont, aes(x = age, y = distance, group = Subject,#
+colour = Sex))#
+p + geom_line()
+g2
+g2 + library(nlme)#
+library(ggplot2)#
+#
+p <- ggplot(data = Orthodont, aes(x = age, y = distance, group = Subject,#
+colour = Sex))#
+p + geom_line()
+g2 + library(nlme)#
+library(ggplot2)#
+#
+p <- ggplot(data = Orthodont, aes(x = age, y = distance, group = Subject,#
+colour = Sex))#
+p + geom_line() + geom_smooth()
+IL_data <- adData[names(adData)[grep("^IL|^diagnosis",names(adData))]]#
+#
+trainIndex_IL <- createDataPartition(IL_data$diagnosis,p=3/4)[[1]]#
+training_IL = IL_data[trainIndex_IL,]#
+testing_IL = IL_data[-trainIndex_IL,]
+preProcess(training_IL[,-1],method="pca",thresh=0.8)
+preProcess(training[, IndexIL], method="pca", thresh = 80)
+preProcess(training[, trainIndex_IL], method="pca", thresh = 80)
+preProcess(training_IL[, trainIndex_IL], method="pca", thresh = 80)
+preProcess(training_IL, method="pca", thresh = 80)
+preProcess(training_IL[,-1],method="pca",thresh=0.8)
+preProcess(training_IL[,-1],method="pca",thresh=80)
+x <- preProcess(training_IL[,-1],method="pca",thresh=80)
+x$numComp
+x <- preProcess(training_IL[,-1],method="pca",thresh=0.8)
+x$numComp
+100000 - 98901
+x/100,000 * (0.1/100)
+100,000 * (0.1/100)
+100000 * (0.1/100)
+100000 - 100
+(99/100)*99900
+100000 - 98901
+98901 + 999
+100000 - 98901
+99900 - 98901
+100,000 * (10/100)
+100000 * (10/100)
+100,000 - 10,000
+100000 - 10000
+10000*99/100
+90000*99/100
+90000 - 89100
+10000 - 9900
+qt(0.975,15)
+qt(0.025,15)
+library(UsingR)
+data(father.som)
+data(father.son)
+t.test(father.son$sheight - father.son$fheight)
+24.71/3.288
+t.test(father.son$sheight, father.son$fheight, paired=T)
+library(datasets); data(ChickWeight); library(reshape2)##define weight gain or losswideCW <- dcast(ChickWeight, Diet + Chick ~ Time, value.var = "weight")names(wideCW)[-(1 : 2)] <- paste("time", names(wideCW)[-(1 : 2)], sep = "")library(dplyr)wideCW <- mutate(wideCW,gain = time21 - time0)
+library(datasets); data(ChickWeight); library(reshape2)#
+##define weight gain or loss#
+wideCW <- dcast(ChickWeight, Diet + Chick ~ Time, value.var = "weight")#
+names(wideCW)[-(1 : 2)] <- paste("time", names(wideCW)[-(1 : 2)], sep = "")#
+library(dplyr)#
+wideCW <- mutate(wideCW, gain = time21 - time0)#
+#
+## Unequal variance T test comparing diets 1 and 4#
+wideCW14 <- subset(wideCW, Diet %in% c(1, 4))#
+t.test(gain ~ Diet, paired = FALSE,#
+var.equal = TRUE, data = wideCW14)
+1-pt(2.5,15)
+library(car)
+attach(mtcars)
+pairs(~mpg+disp+drat+wt,data=mtcars, #
+   main="Simple Scatterplot Matrix")
+mtcars
+pairs(~mpg+disp+drat+wt,data=mtcars, #
+   main="Simple Scatterplot Matrix",colour=mpg)
+pairs(~mpg+disp+drat+wt,data=mtcars, #
+   main="Simple Scatterplot Matrix",colour=cyl)
+pairs(~mpg+disp+drat+wt,data=mtcars, #
+   main="Simple Scatterplot Matrix",colour="blue")
+pairs(~mpg+disp+drat+wt,data=mtcars, #
+   main="Simple Scatterplot Matrix",color="blue")
+pairs(~mpg+disp+drat+wt,data=mtcars, #
+   main="Simple Scatterplot Matrix")
+?pairs
+pairs(~mpg+disp+drat+wt,data=mtcars, #
+   main="Simple Scatterplot Matrix",col="blue")
+pairs(~mpg+disp+drat+wt,data=mtcars, #
+   main="Simple Scatterplot Matrix",col=cyl)
+library(caret)#
+featurePlot(x=training[,c("age","education","jobclass")], y=training$wage, plot="pairs")#
+#
+library(ggplot2)#
+qq <- qplot(age,wage,data=training,colour=jobclass)#
+qq + geom_smooth(method='lm',formula=y~x)#
+#
+library(Hmisc)#
+cutwage <- cut2(training$wage, g=3)#
+table(cutwage)#
+#
+qplot(cutwage, age, data=training, fill=cutwage, geom_plot=c("boxplot"))
+library(ISLR)#
+library(ggplot2)#
+library(caret)#
+#
+data(Wage)#
+#
+inTrain <- createPartition(y=Wage$wage, p=0.7, list=F)#
+#
+training <- Wage[inTrain,]#
+testing <- Wage[-inTrain,]
+inTrain <- createDataPartition(y=Wage$wage, p=0.7, list=F)
+training <- Wage[inTrain,]#
+testing <- Wage[-inTrain,]#
+#
+featurePlot(x=training[,c("age","education","jobclass")], y=training$wage, plot="pairs")#
+#
+library(ggplot2)#
+qq <- qplot(age,wage,data=training,colour=jobclass)#
+qq + geom_smooth(method='lm',formula=y~x)#
+#
+library(Hmisc)#
+cutwage <- cut2(training$wage, g=3)#
+table(cutwage)#
+#
+qplot(cutwage, age, data=training, fill=cutwage, geom_plot=c("boxplot"))
+qplot(age,wage,data=training,colour=jobclass)
+qq <- qplot(age,wage,data=training,colour=jobclass)#
+qq + geom_smooth(method='lm',formula=y~x)
+qq <- qplot(age,wage,data=training,colour=education)#
+qq + geom_smooth(method='lm',formula=y~x)
+library(Hmisc)#
+cutwage <- cut2(training$wage, g=3)#
+table(cutwage)#
+#
+qplot(cutwage, age, data=training, fill=cutwage, geom_plot=c("boxplot"))
+qplot(cutwage, age, data=training, fill=cutwage, geom=c("boxplot"))
+library(caret)#
+library(randomForest)#
+library(stargazer)#
+library(e1071)#
+library(datasets)#
+library(UsingR)#
+library(plyr)#
+library(gridExtra)#
+library(knitr)
+setwd("~/gitdir/coursera/studentcoursera/machine_learning/project")#
+if (!file.exists("data"))  dir.create("data")#
+#
+## File download and unzip#
+if(!file.exists("data/pml_training.rds")) {#
+    if(!file.exists("data/pml-training.csv")) #
+        download.file("https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv", #
+            destfile = "./data/pml-training.csv", method = "curl")
+}
+if(!file.exists("data/pml_testing.rds")) {#
+    if(!file.exists("data/pml-testing.csv")) #
+        download.file("https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv", #
+            destfile = "./data/pml-testing.csv", method = "curl")#
+}
+if (!"pmltraining" %in% ls()) #
+    pmltraining <- read.csv("data/pml-training.csv",na.strings=c("")) #
+if (!"pmltesting" %in% ls()) #
+    pmltesting  <- read.csv("data/pml-testing.csv",na.strings=c("")) #
+#
+## Data cleaning#
+## assuming that this is misspelt for "skewness_pitch_belt" instead of "skewness_roll_belt.1"#
+names(pmltraining)[names(pmltraining) == "skewness_roll_belt.1"] <- "skewness_pitch_belt"#
+names(pmltraining)[names(pmltraining) == "var_total_accel_belt"] <- "var_accel_belt"#
+names(pmltraining) <- sub("_picth_","_pitch_",names(pmltraining))#
+#
+names(pmltesting)[names(pmltesting) == "skewness_roll_belt.1"] <- "skewness_pitch_belt"#
+names(pmltesting)[names(pmltesting) == "var_total_accel_belt"] <- "var_accel_belt"#
+names(pmltesting) <- sub("_picth_","_pitch_",names(pmltesting))
+pmltrain <- subset(pmltraining,select=c(2,7,grep("^accel_|^total_accel",names(pmltraining)),grep("classe",names(pmltraining))))
+set.seed(3433)#
+trainIndex <- createDataPartition(pmltrain$classe,p=0.6)[[1]]#
+training = pmltrain[trainIndex,]#
+testing = pmltrain[-trainIndex,]#
+#
+## Splitting testing into two halves: test and val#
+testIndex <- createDataPartition(testing$classe,p=0.5)[[1]]#
+testing_test = pmltrain[trainIndex,]#
+testing_val = pmltrain[-trainIndex,]
+### Variability check#
+nzv <- nearZeroVar(training, saveMetrics=T)#
+## filter out fields which are non-zero variability and zero variables.#
+training <- training[!nzv$nzv & !nzv$zeroVar,]#
+testing  <-  testing[!nzv$nzv & !nzv$zeroVar,]
+system.time(modFit1 <- train(classe~ .,data=training,method="rf",prox=FALSE,allowParallel=TRUE))
+=================
+system.time(modelFit1 <- train(classe ~ ., data=training, method="rf", ntree=100,prox=FALSE))
+system.time(modelFit1 <- train(classe ~ ., data=training, method="rf", ntree=100,prox=TRUE))
+set.seed(7)#
+# load the library#
+library(mlbench)#
+library(caret)#
+#
+# load the dataset#
+#data(PimaIndiansDiabetes)#
+#
+# prepare training scheme#
+control <- trainControl(method="repeatedcv", number=10, repeats=3)#
+#
+# train the model#
+model <- train(classe~., data=pmltraining, method="lvq", preProcess="scale", trControl=control)#
+#
+# estimate variable importance#
+importance <- varImp(model, scale=FALSE)#
+#
+# summarize importance#
+print(importance)#
+#
+# plot importance#
+plot(importance)
+install.packages("mlbench")
+install.packages("mlbench")
+install.packages("mlbench")
+install.packages("mlbench")
+install.packages("mlbench")
+install.packages("mlbench")
+install.packages("mlbench",repos="http://cran.ms.unimelb.edu.au/",dependencies=TRUE)
+set.seed(7)#
+# load the library#
+library(mlbench)#
+library(caret)#
+#
+# load the dataset#
+#data(PimaIndiansDiabetes)#
+#
+# prepare training scheme#
+control <- trainControl(method="repeatedcv", number=10, repeats=3)#
+#
+# train the model#
+model <- train(classe~., data=pmltraining, method="lvq", preProcess="scale", trControl=control)#
+#
+# estimate variable importance#
+importance <- varImp(model, scale=FALSE)#
+#
+# summarize importance#
+print(importance)#
+#
+# plot importance#
+plot(importance)
+train(classe~., data=pmltraining, method="lvq", preProcess="scale", trControl=control)
+str(pmltraining)
+head(pmltraining)
+train(classe ~ ., data=pmltraining, method="lvq", preProcess="scale", trControl=control)
+str(pmltraining$classe)
+train(. ~ classe, data=pmltraining, method="lvq", preProcess="scale", trControl=control)
+train(classe ~ ., data=pmltraining, method="lvq", preProcess="scale", trControl=control)
+train(classe ~ ., data=pmltraining, method="lvq", preProcess="scale", trControl=control)
+train(pmltraining$classe ~ ., data=pmltraining, method="lvq", preProcess="scale", trControl=control)
+str(pmltraining$classe)
+levels(pmltraining$classe)
+unique(pmltraining$classe)
