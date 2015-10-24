@@ -103,11 +103,8 @@ Training and testing data:
   
 5. Could not use "allowParallel=TRUE" with "lvq", it throws error. Did not probe more as time was limited.
   
-6. When used "Parallel Random Tree", it displayed a warning, stating parallelism was not used, it performed sequentially. In caret package, train function, method="parRF".
-```
-Warning message:
-executing %dopar% sequentially: no parallel backend registered
-```  
+6. When used "Parallel Random Tree", it displayed a warning, stating parallelism was not used, it performed sequentially. In caret package, train function, method="parRF".  Warning message: executing %dopar% sequentially: no parallel backend registered
+  
 7. As part of high correlation test, noticed that couple of fields can be eliminated. This was experimented on the x/y/z/total dataset (43 variables); not on the final data.
 ```
 > names(tt3[,highCorr])
