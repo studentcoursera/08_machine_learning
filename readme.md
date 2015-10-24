@@ -50,8 +50,8 @@ Class A corresponds to the specified execution of the exercise, while the other 
 
 The exercises were performed by 6 male participants aged between 20-28 years, with little weight lifting experience. We made sure that all participants could easily simulate the mistakes in a safe and controlled manner by using a relatively light dumbbell (1.25kg).
 
-## Notes
-
+## Notes  
+  
 3 types of motion (Euler angels): roll, pitch and yaw.  
 --------------------------------  
 Rotation around the front-to-back axis is called roll.  
