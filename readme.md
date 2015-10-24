@@ -46,13 +46,13 @@ Participants were asked to perform one set of 10 repetitions of the Unilateral D
 4. lowering the dumbbell only halfway **(Class D)** and  
 5. throwing the hips to the front **(Class E)**.  
 
-```Class A``` corresponds to the specified execution of the exercise, while the other 4 classes correspond to common mistakes. Participants were supervised by an experienced weight lifter to make sure the execution complied to the manner they were supposed to simulate. 
+`Class A` corresponds to the specified execution of the exercise, while the other 4 classes correspond to common mistakes. Participants were supervised by an experienced weight lifter to make sure the execution complied to the manner they were supposed to simulate. 
 
 The exercises were performed by 6 male participants aged between 20-28 years, with little weight lifting experience. They had made sure that all participants could easily simulate the mistakes in a safe and controlled manner by using a relatively light dumbbell (1.25kg).
 
 ## Notes  
   
-**3 types of motion (Euler angels):** roll, pitch and yaw.    
+**3 types of motion (Euler angels):** _roll_, _pitch_ and _yaw_.    
 Rotation around the front-to-back axis is called _roll_.  
 Rotation around the side-to-side axis is called _pitch_.  
 Rotation around the vertical axis is called _yaw_.  
@@ -120,8 +120,6 @@ Training and testing data:
 [1] "accel_belt_x"    "gyros_belt_z"    "gyros_forearm_x" "magnet_arm_z"   
 [5] "total_accel_arm"
 ```  
-8. 
-  
   
 ### Decision on final variables list  
   
