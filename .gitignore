@@ -1,5 +1,13 @@
+## not required on github - these are working files and folders
 working
 tmp_proj
 .DS_Store
 .Rapp.history
 .Rhistory
+
+## these are required, but later on github, after completing
+## 
+machine_learning_project*
+*.png
+test_output
+mach-pred.RData
