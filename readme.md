@@ -132,23 +132,34 @@ The various forms of group of variables considered in this experimentaion (as pa
 1. All the variables. This needed eliminating a few columns, like NA, etc.  
   
 2. Eliminating all the 8 calculated variables. With this encountered a few issues.  
-tt2 <- subset(pmltraining,select=c(-grep("^kurtosis_|^skewness_|^max_|^min_|^amplitude_|^avg_|^stddev_|^var_",names(pmltraining))))
+tt2 <- subset(pmltraining,select=c(-grep("^kurtosis_|^skewness_|^max_|^min_
+|^amplitude_|^avg_|^stddev_|^var_",names(pmltraining))))
   
+3. Considering roll/pitch/yaw/total and x/y/z variables for gyros/accel/magnet with
+   classe. This was a fair consideration, it did train and predict well, as well.  
+newTrain <- subset(pmltraining,select=c(grep("^total_|_x$|_y$|_z$|
+^roll_|^pitch_|^yaw",names(pmltraining)),grep("classe",names(pmltraining))))
   
-3. Considering roll/pitch/yaw/total and x/y/z variables for gyros/accel/magnet with classe. This was a fair consideration, it did train and predict well, as well.  
-newTrain <- subset(pmltraining,select=c(grep("^total_|_x$|_y$|_z$|^roll_|^pitch_|^yaw",names(pmltraining)),grep("classe",names(pmltraining))))
+4. Considering total and x/y/z variables for gyros/accel/magnet with classe. This was a
+   fair consideration, it did train and predict well, as well. This also performed well,
+   could train and predict.  
+tt <- subset(pmltraining,select=c(2,7,grep("^total_|_x$|_y$|_z$",
+names(pmltraining)),grep("classe",names(pmltraining))))  
   
+5. First 7 and last 1 fields (8 fields), then, 16 fields of roll/pitch/yaw/total_accel
+   for arm/belt/dumbbell/forearm, then, 36 fields of gyros/accel/magnet for
+   arm/belt/dumbbell/forearm for x/y/z. [8 + 16 + 36 = 60 fields]  
+pmltrain <- subset(pmltraining,c(1:7,grep("^roll_|^pitch_|^yaw_",
+names(pmltraining)),grep("^gyros_|^accel_|^magnet_|^total_accel",
+names(pmltraining)),grep("classe",names(pmltraining)))  
   
-4. Considering total and x/y/z variables for gyros/accel/magnet with classe. This was a fair consideration, it did train and predict well, as well. This also performed well, could train and predict.  
-tt <- subset(pmltraining,select=c(2,7,grep("^total_|_x$|_y$|_z$",names(pmltraining)),grep("classe",names(pmltraining))))  
+6. Only username, num_window, accelerator variables and classe, for my own
+   interpretation of data.  
+pmltrain <- subset(pmltraining,select=c(2,7,grep("^accel_|^total_accel",
+names(pmltraining)),grep("classe",names(pmltraining))))
   
-5. First 7 and last 1 fields (8 fields), then, 16 fields of roll/pitch/yaw/total_accel for arm/belt/dumbbell/forearm, then, 36 fields of gyros/accel/magnet for arm/belt/dumbbell/forearm for x/y/z. [8 + 16 + 36 = 60 fields]  
-pmltrain <- subset(pmltraining,c(1:7,grep("^roll_|^pitch_|^yaw_",names(pmltraining)),grep("^gyros_|^accel_|^magnet_|^total_accel",names(pmltraining)),grep("classe",names(pmltraining)))  
-  
-6. Only username, num_window, accelerator variables and classe, for my own interpretation of data.  
-pmltrain <- subset(pmltraining,select=c(2,7,grep("^accel_|^total_accel",names(pmltraining)),grep("classe",names(pmltraining))))
-  
-7. Finally, filtered fields for only accelerometer and classe variable, as the project specifically calls this out.  
+7. Finally, filtered fields for only accelerometer and classe variable, as the project
+   specifically calls this out.  
   
 ```
 ### Others
