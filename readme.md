@@ -68,10 +68,10 @@ Training and testing data:
 
 1. For every user, every num_window and new_window == "yes", 8 values are calculated. The combination of the same is as follows (96+4=100 fields):  
    a. belt, arm, forearm, dumbell (4 tools)  
-    i. roll, pitch and yaw (3 motions/Euler angels)  
-        a. kurtosis, skewness, max, min, amplitude, avg, stddev, var (8 calculated features)  
-     ii. accel  
-          a. var  
+		i. roll, pitch and yaw (3 motions/Euler angels)  
+			a. kurtosis, skewness, max, min, amplitude, avg, stddev, var (8 calculated features)  
+		ii. accel  
+			a. var  
 2. The values in every column would be (60 fields):  
    a. user_name, raw_timestamp_part_1, raw_timestamp_part_2, cvtd_timestamp, new_window, num_window [ 6]  
    b. belt, arm, forearm, dumbell (4 tools)															[12]  
