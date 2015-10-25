@@ -1,5 +1,5 @@
 ---
-title: 'Machine Learning: Prediction of classe using Weight lifting excersises(Project)'
+title: 'Machine Learning: Prediction of classe using Weight lifting excercises (Project)'
 author: "Ambika J, as on 25-Oct-2015"
 output:
   html_document:
@@ -108,6 +108,8 @@ _As part of building a machine learning prediction algorithm_,
 <li> Conducted cross validations on trained data. The different error rates, with different models, are reflected.
 <li> We predict the classe that it belongs to. Predict by passing through the pml-testing data, using the model used to train.    
 </UL>
+
+Refer to read me file for more details - [Read me file](https://github.com/studentcoursera/08_machine_learning/blob/master/readme.md)
 
 ### Variable selection
 The only factor variable is classe, others are all predictor variables which are continuous variables. We are using only raw measurements for building this algorithm. [For code and details, refer to Appendix C.]
