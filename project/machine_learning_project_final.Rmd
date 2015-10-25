@@ -113,9 +113,7 @@ _As part of building a machine learning prediction algorithm_,
 The only factor variable is classe, others are all predictor variables which are continuous variables. We are using only raw measurements for building this algorithm. [For code and details, refer to Appendix C.]
 
 ### EDA
-To understand the predictor variables, the data patterns, exploratory data analysis was conducted. 
-
-The summary of data is provided in Appedix D, section data.
+To understand the predictor variables, the data patterns, exploratory data analysis was conducted. The summary of data is provided in Appedix D, section data.
 
 From the plot of accel scatterplot matrix [Appendix D. section "plot"], it is evident that the data is not linear, thus, we cannot process linear models for machine learning. Similar to accel scatter plot, there are scatter plots for gyros and magnet (which was peformed outside this project).
 [For code and details, refer to Appendix D.]
@@ -150,6 +148,8 @@ Also, refer to the graph in Appendix J, We have got 100% accuracy in predicting 
   
 ### Predict testing data
 Data is predicted on testing data and the results are published in Appendix K. It was 100% accurate. Thus, this model severed right for this particular case.
+
+NOTE: As there is a restriction on number of graphs/plots, many plots are not displayed, but the code for the same is given in respective Appendices.
 
 ### Appendix
 #### A: Loading data
