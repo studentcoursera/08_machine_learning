@@ -261,7 +261,7 @@ for (i in 1:n) {
     tail(t1, n=6)))
 }
 ```
-```{r}
+```{r eval=FALSE}
 plot(training$gyros_forearm_y, main = "Plot for gyros_forearm_y", ylab = "gyros_forearm_y")
 
 ## From the above code, the plots were verified and these are the variables with outliers and these rows will be removed.
@@ -299,7 +299,7 @@ rm("training_nzv")
 
 #### G. Experiment with different models
 ##### ML: Train data: RandomForest
-```{r ML_RF_trainData, cache=TRUE}
+```{r ML_RF_trainData, cache=TRUE, eval=FALSE}
 ## Train data with Random forest
 if (!"modelFitRF" %in% ls()) 
     modelFitRF <- train(classe ~ ., data=training, method="rf", ntree=100)
@@ -335,7 +335,7 @@ table(pred_qda,pred_nb)
 ```
 
 **Comparison of Results**  
-```{r}
+```{r, eval=FALSE}
 pred_posb_l <- (pred_lda==pred_nb)
 pred_posb_q <- (pred_qda==pred_nb)
 
@@ -369,7 +369,7 @@ pred_glm <- predict(modelFit_glm1, validation)
 pred_rf2 <- predict(modelFit_rf2, validation)
 ```
 
-```{r, fig.height=4, fig.width=4}
+```{r, fig.height=4, fig.width=4, eval=FALSE}
 qplot(pred_glm,pred_rf2,data=validation,colour=classe)
 ```  
 
@@ -389,7 +389,7 @@ finMod_rf2 <- modelFit_rf2$finalModel
 plot(finMod_rf2)
 ```
 
-```{r, fig.height=7, fig.width=5}
+```{r, fig.height=7, fig.width=5, eval=FALSE}
 varImpPlot(finMod_rf2)
 ```
 
@@ -441,12 +441,10 @@ mean(pred_posb_val)
 ## out sample error
 1 - mean(pred_posb_val)
 ```
-So, here is the out of sample error.
 
-```{r}
+```{r, eval=FALSE}
 qplot(accel_arm_x, accel_arm_y, data=validation, colour=pred_posb_val)
 ```
-We have got 100% accuracy in predicting the validation data set, in this particular experiment and dataset.
 
 #### K. Predict on testing set and file creation
 ```{r testDataPred, echo=FALSE}

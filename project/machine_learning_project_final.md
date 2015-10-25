@@ -52,7 +52,11 @@ _As part of building a machine learning prediction algorithm_,
 The only factor variable is classe, others are all predictor variables which are continuous variables. We are using only raw measurements for building this algorithm. [For code and details, refer to Appendix C.]
 
 ### EDA
-To understand the predictor variables, the data patterns, exploratory data analysis was conducted. From the plot of accel scatterplot matrix [Appendix D. section "plot"], it is evident that the data is not linear, thus, we cannot process linear models for machine learning. Similar to accel scatter plot, there are scatter plots for gyros and magnet (which was peformed outside this project).
+To understand the predictor variables, the data patterns, exploratory data analysis was conducted. 
+
+The summary of data is provided in Appedix D, section data.
+
+From the plot of accel scatterplot matrix [Appendix D. section "plot"], it is evident that the data is not linear, thus, we cannot process linear models for machine learning. Similar to accel scatter plot, there are scatter plots for gyros and magnet (which was peformed outside this project).
 [For code and details, refer to Appendix D.]
 
 One interesting patter noticed during EDA, refer to Appendix L, if intereseted.
@@ -231,11 +235,7 @@ for (i in 1:n) {
 
 ```r
 plot(training$gyros_forearm_y, main = "Plot for gyros_forearm_y", ylab = "gyros_forearm_y")
-```
 
-![](machine_learning_project_final_files/figure-html/unnamed-chunk-5-1.png) 
-
-```r
 ## From the above code, the plots were verified and these are the variables with outliers and these rows will be removed.
 remove_rows <- with(training, accel_forearm_y > 592 | accel_forearm_y < -456 | gyros_forearm_y > 7 | gyros_forearm_x < -3 | magnet_dumbbell_y < -742 | accel_dumbbell_z < -273 | accel_dumbbell_x < -237 | gyros_dumbbell_z > 2 | gyros_dumbbell_y > 3 | accel_belt_y < -54 | accel_belt_y > 92 | gyros_belt_y > 0.56 | gyros_belt_y < -0.45)
 
@@ -294,8 +294,6 @@ if (!"modelFitRF" %in% ls())
 finModRF <- modelFitRF$finalModel
 plot(finModRF)
 ```
-
-![](machine_learning_project_final_files/figure-html/ML_RF_trainData-1.png) 
 
 ##### ML: Train data: Trees
 
@@ -362,8 +360,6 @@ p2 <- qplot(accel_arm_x,accel_arm_y,data=validation,colour=pred_posb_q)
 grid.arrange(p1, p2, ncol=2)
 ```
 
-![](machine_learning_project_final_files/figure-html/unnamed-chunk-7-1.png) 
-
 From these comparisons it is evident that False rate is on to the higher side for both lda and qda models when compared to mobel nb.
 
 
@@ -391,8 +387,6 @@ pred_rf2 <- predict(modelFit_rf2, validation)
 ```r
 qplot(pred_glm,pred_rf2,data=validation,colour=classe)
 ```
-
-![](machine_learning_project_final_files/figure-html/unnamed-chunk-9-1.png) 
 
 From this plot it is evident, that the combination of these are not appropriate. As the prediction from glmnet and rf2, do not tally. 
 
@@ -427,8 +421,6 @@ plot(finMod_rf2)
 varImpPlot(finMod_rf2)
 ```
 
-![](machine_learning_project_final_files/figure-html/unnamed-chunk-13-1.png) 
-
 
 
 #### I. Cross Validation
@@ -457,41 +449,41 @@ confusionMatrix(validation$classe,pred_t)
 ##           Reference
 ## Prediction    A    B    C    D    E
 ##          A 2227    3    0    2    0
-##          B   28 1473   16    1    0
+##          B   29 1472   16    1    0
 ##          C    0   25 1341    2    0
-##          D    5    0   40 1238    3
+##          D    4    0   42 1237    3
 ##          E    2    1    1    2 1436
 ## 
 ## Overall Statistics
-##                                          
-##                Accuracy : 0.9833         
-##                  95% CI : (0.9802, 0.986)
-##     No Information Rate : 0.2883         
-##     P-Value [Acc > NIR] : < 2.2e-16      
-##                                          
-##                   Kappa : 0.9789         
-##  Mcnemar's Test P-Value : NA             
+##                                           
+##                Accuracy : 0.983           
+##                  95% CI : (0.9799, 0.9858)
+##     No Information Rate : 0.2883          
+##     P-Value [Acc > NIR] : < 2.2e-16       
+##                                           
+##                   Kappa : 0.9785          
+##  Mcnemar's Test P-Value : NA              
 ## 
 ## Statistics by Class:
 ## 
 ##                      Class: A Class: B Class: C Class: D Class: E
-## Sensitivity            0.9845   0.9807   0.9592   0.9944   0.9979
-## Specificity            0.9991   0.9929   0.9958   0.9927   0.9991
-## Pos Pred Value         0.9978   0.9704   0.9803   0.9627   0.9958
-## Neg Pred Value         0.9938   0.9954   0.9912   0.9989   0.9995
-## Prevalence             0.2883   0.1914   0.1782   0.1587   0.1834
-## Detection Rate         0.2838   0.1877   0.1709   0.1578   0.1830
+## Sensitivity            0.9845   0.9807   0.9579   0.9944   0.9979
+## Specificity            0.9991   0.9928   0.9958   0.9926   0.9991
+## Pos Pred Value         0.9978   0.9697   0.9803   0.9619   0.9958
+## Neg Pred Value         0.9938   0.9954   0.9909   0.9989   0.9995
+## Prevalence             0.2883   0.1913   0.1784   0.1586   0.1834
+## Detection Rate         0.2838   0.1876   0.1709   0.1577   0.1830
 ## Detection Prevalence   0.2845   0.1935   0.1744   0.1639   0.1838
-## Balanced Accuracy      0.9918   0.9868   0.9775   0.9936   0.9985
+## Balanced Accuracy      0.9918   0.9867   0.9768   0.9935   0.9985
 ```
 
 
 ```
 ##                  A       B       C       D       E
-## predict    2262.00 1502.00 1398.00 1245.00 1439.00
+## predict    2262.00 1501.00 1400.00 1244.00 1439.00
 ## validation 2232.00 1518.00 1368.00 1286.00 1442.00
-## dif_per       1.33   -1.07    2.15   -3.29   -0.21
-## accurcy      98.67   98.93   97.85   96.71   99.79
+## dif_per       1.33   -1.13    2.29   -3.38   -0.21
+## accurcy      98.67   98.87   97.71   96.62   99.79
 ```
 
 
@@ -508,10 +500,10 @@ table(pred_rf2, pred_t)
 ```
 ##         pred_t
 ## pred_rf2    A    B    C    D    E
-##        A 2262    0    0    0    0
-##        B    0 1502    0    0    0
+##        A 2261    0    1    0    0
+##        B    1 1501    0    0    0
 ##        C    0    0 1398    0    0
-##        D    0    0    0 1245    0
+##        D    0    0    1 1244    0
 ##        E    0    0    0    0 1439
 ```
 
@@ -523,7 +515,7 @@ mean(pred_posb_val)
 ```
 
 ```
-## [1] 1
+## [1] 0.9996176
 ```
 
 ```r
@@ -532,17 +524,13 @@ mean(pred_posb_val)
 ```
 
 ```
-## [1] 0
+## [1] 0.0003823604
 ```
-So, here is the out of sample error.
 
 
 ```r
 qplot(accel_arm_x, accel_arm_y, data=validation, colour=pred_posb_val)
 ```
-
-![](machine_learning_project_final_files/figure-html/unnamed-chunk-20-1.png) 
-We have got 100% accuracy in predicting the validation data set, in this particular experiment and dataset.
 
 #### K. Predict on testing set and file creation
 
@@ -610,15 +598,15 @@ sessionInfo()
 ##  [7] mgcv_1.8-7          nloptr_1.0.4        foreign_0.8-65     
 ## [10] RColorBrewer_1.1-2  stringr_1.0.0       MatrixModels_0.4-1 
 ## [13] munsell_0.4.2       combinat_0.0-8      gtable_0.1.2       
-## [16] codetools_0.2-14    evaluate_0.8        labeling_0.3       
-## [19] latticeExtra_0.6-26 SparseM_1.7         quantreg_5.19      
-## [22] pbkrtest_0.4-2      class_7.3-13        proto_0.3-10       
-## [25] Rcpp_0.12.1         acepack_1.3-3.3     scales_0.3.0       
-## [28] formatR_1.2.1       BradleyTerry2_1.0-6 lme4_1.1-9         
-## [31] digest_0.6.8        stringi_0.5-5       brglm_0.5-9        
-## [34] tools_3.2.2         magrittr_1.5        cluster_2.0.3      
-## [37] car_2.1-0           minqa_1.2.4         rmarkdown_0.3.10   
-## [40] nnet_7.3-10         nlme_3.1-121
+## [16] codetools_0.2-14    evaluate_0.8        latticeExtra_0.6-26
+## [19] SparseM_1.7         quantreg_5.19       pbkrtest_0.4-2     
+## [22] class_7.3-13        proto_0.3-10        Rcpp_0.12.1        
+## [25] acepack_1.3-3.3     scales_0.3.0        formatR_1.2.1      
+## [28] BradleyTerry2_1.0-6 lme4_1.1-9          digest_0.6.8       
+## [31] stringi_0.5-5       brglm_0.5-9         tools_3.2.2        
+## [34] magrittr_1.5        cluster_2.0.3       car_2.1-0          
+## [37] minqa_1.2.4         rmarkdown_0.3.10    nnet_7.3-10        
+## [40] nlme_3.1-121
 ```
 
 ### References
