@@ -50,6 +50,8 @@ _As part of building a machine learning prediction algorithm_,
 
 Refer to read me file for more details - [Read me file](https://github.com/studentcoursera/08_machine_learning/blob/master/readme.md)
 
+As I have given a rawgit.com to view the html page in github, here is my github repo link - [My github repo](https://github.com/studentcoursera/08_machine_learning)
+
 ### Variable selection
 The only factor variable is classe, others are all predictor variables which are continuous variables. We are using only raw measurements for building this algorithm. [For code and details, refer to Appendix C.]
 
