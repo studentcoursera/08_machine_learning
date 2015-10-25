@@ -104,17 +104,23 @@ Training and testing data:
   
 1. During EDA, noticed that particular set of variables had interesting patterns. One of them was for dumbbell, there was interesting pattern of a diamond shape. If you need to refer, refer to the Appendix.  
   
-2. When we run random forests, without mentioning number of trees, it took almost 3+ hours to train (Where prox=TRUE). But, at the same time, if prox is not stated, notice that for the dataset with only accelerometer, it took about 10 minutes.  
+2. When we run random forests, without mentioning number of trees, it took almost 3+ hours to train (Where prox=TRUE). But, at the same time, if prox and ntree are not stated, notice that for the dataset with only accelerometer, it took about 30 minutes.  
   
-3. Also, tried "lvq" (Learning Vector Quantization). This was conducted on 2 different datasets of eliminating 8 calculated features and the other x/y/z set of data sets. And it took between 2 to 3 hours to complete.  
+3. Also, tried "lvq" (Learning Vector Quantization). This was conducted on 2 different datasets of eliminating 8 calculated features and the other x/y/z set of data sets. And it took between 2 to 3 hours to complete. Not added to the main report.  
   
-4. After conducting "lvq", tried to get summarized importance of variables and noticed that gyros where the least important variables; for each classe.  
+4. After conducting "lvq", tried to get summarized importance of variables and noticed that gyros where the least important variables; for each classe. Not added to the main report.  
   
 5. Could not use "allowParallel=TRUE" with "lvq", it throws error. Did not probe more as time was limited.
   
-6. When used "Parallel Random Tree", it displayed a warning, stating parallelism was not used, it performed sequentially. In caret package, train function, method="parRF".  `Warning message: executing %dopar% sequentially: no parallel backend registered`
+6. When used "Parallel Random Tree", it displayed a warning, stating parallelism was not used, it performed sequentially. In caret package, train function, method="parRF". . Not added to the main report.  `Warning message: executing %dopar% sequentially: no parallel backend registered`
   
-7. As part of high correlation test, noticed that couple of fields can be eliminated. This was experimented on the x/y/z/total dataset (43 variables); not on the final data.
+7. Executed several other models as well - like Trees, lda (Linear Discriminant Analysis ) and nb (navie bayes). Training data with lda was fast, nb took about 7+ mins. Even predict with nb, takes a few seconds longer.
+
+8. With 60 variables (eliminating 8 calculated measurements), random forest error rate was almost negligible. `OOB estimate of  error rate: 0.03%`. With 53 variables, it was slightly higher 0.99% and with 43 variables, it was 2.02% and for 17 variables it was 6.33%. So, in this scenario, the more variables we have, the error rate is less.
+
+9. When I look at trees, the data set with 60 variables, do not predict all the classe. So, this is avoided for prediction. 
+  
+9. As part of high correlation test, noticed that couple of fields can be eliminated. This was experimented on the x/y/z/total dataset (43 variables).
 ```
 > names(tt3[,highCorr])
 [1] "accel_belt_x"    "gyros_belt_z"    "gyros_forearm_x" "magnet_arm_z"   
@@ -130,7 +136,7 @@ The various forms of group of variables considered in this experimentaion (as pa
 1. All the variables. We had to eliminate a few columns, like NA, etc.  
   
 2. Eliminating all the 8 calculated variables. With this encountered a few issues.  
-tt2 <- subset(pmltraining,select=c(-grep("^kurtosis_|^skewness_|^max_|^min_
+newTrain1 <- subset(pmltraining,select=c(-grep("^kurtosis_|^skewness_|^max_|^min_
 |^amplitude_|^avg_|^stddev_|^var_",names(pmltraining))))
   
 3. Considering roll/pitch/yaw/total and x/y/z variables for gyros/accel/magnet with
@@ -141,7 +147,7 @@ newTrain <- subset(pmltraining,select=c(grep("^total_|_x$|_y$|_z$|
 4. Considering total and x/y/z variables for gyros/accel/magnet with classe. This was a
    fair consideration, it did train and predict well, as well. This also performed well,
    could train and predict.  
-tt <- subset(pmltraining,select=c(2,7,grep("^total_|_x$|_y$|_z$",
+newTrain2 <- subset(pmltraining,select=c(2,7,grep("^total_|_x$|_y$|_z$",
 names(pmltraining)),grep("classe",names(pmltraining))))  
   
 5. First 7 and last 1 fields (8 fields), then, 16 fields of roll/pitch/yaw/total_accel
@@ -157,7 +163,9 @@ pmltrain <- subset(pmltraining,select=c(2,7,grep("^accel_|^total_accel",
 names(pmltraining)),grep("classe",names(pmltraining))))
   
 7. Finally, filtered fields for only accelerometer and classe variable, as the project
-   specifically calls this out.  
+   specifically calls this out. But, this had OOB error rate of more than 6%.
+   
+8. To improve, filtered fields for only accelerometer (without total) and x/y/z variables, along with classe. This is a whole set of raw measurements along with all accelerometer raw measurements as well. This gave an OOB error rate of 2.3% and with 10 fold cross-validated it was 1.8%. This is the final set, used for this project.
   
 ```
 ### Others
