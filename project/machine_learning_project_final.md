@@ -51,7 +51,7 @@ _As part of building a machine learning prediction algorithm_,
 Refer to read me file for more details - [Read me file](https://github.com/studentcoursera/08_machine_learning/blob/master/readme.md)
 
 ### Small note on my github repo
-As I have given a rawgit.com followed my github details, (to view the html page in github), here is my github repo link - [My github repo](https://github.com/studentcoursera/08_machine_learning)  
+As I have given a rawgit.com followed my github details, (to view the html page in github), here is my github repo link - [My github repo with Rmd and html](https://github.com/studentcoursera/08_machine_learning/tree/master/project)  
 With gh-pages: https://studentcoursera.github.io/08_machine_learning/project/machine_learning_project_final
 
 ### Variable selection
